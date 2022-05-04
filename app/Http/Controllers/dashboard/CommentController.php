@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=DB::table('posts')->limit(5)->get();
-        foreach ($posts as $post){
-            echo "<h1>" .$post->title ."</h1>";
-        }
-        //return view('admin.posts.index');
+        //
     }
 
     /**
