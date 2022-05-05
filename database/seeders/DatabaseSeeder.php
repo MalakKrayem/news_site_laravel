@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             PhoneSeeder::class,
             RuleSeeder::class,
             RuleUserSeeder::class,
-            ImageSeeder::class
+            ImageSeeder::class,
+            VideoSeeder::class,
+            ShareSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

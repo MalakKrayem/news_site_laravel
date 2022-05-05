@@ -9,6 +9,7 @@ use App\Models\Phone;
 use App\Models\Post;
 use App\Models\Rule;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -22,8 +23,7 @@ class PostController extends Controller
 
 
     public function poly_relation(){
-        $image=Post::find(137);
-        dd($image->image->url);
+        
     }
     public function relation(){
 
