@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Phone;
 use App\Models\Post;
 use App\Models\Rule;
@@ -20,6 +21,10 @@ class PostController extends Controller
      */
 
 
+    public function poly_relation(){
+        $image=Post::find(137);
+        dd($image->image->url);
+    }
     public function relation(){
 
     }

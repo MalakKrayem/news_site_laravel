@@ -18,6 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
+    public function image(){
+        return $this->morphOne(Image::class,'imageable');
+    }
     public function phone(){
         return $this->hasOne(Phone::class);
     }

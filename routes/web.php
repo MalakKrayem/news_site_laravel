@@ -32,6 +32,8 @@ Route::prefix('admin')->group(function (){
 
 Route::get('orm',[PostController::class,'orm']);
 Route::get('relation',[PostController::class,'relation']);
+Route::get('polyrelation',[PostController::class,'poly_relation']);
+
 
 
 

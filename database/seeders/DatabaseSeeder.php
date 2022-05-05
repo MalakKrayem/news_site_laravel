@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             PhoneSeeder::class,
             RuleSeeder::class,
-            RuleUserSeeder::class
+            RuleUserSeeder::class,
+            ImageSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }
