@@ -20,7 +20,7 @@ class PostFactory extends Factory
     {
         return [
             'title'=>$this->faker->sentence,
-            'content'=>$this->faker->text,
+            'post_content'=>$this->faker->text,
             'featured_image'=>'posts/images/featuredImages/img.png',
             'large_image'=>'posts/images/largeImages/img.png',
             'views'=>$this->faker->randomNumber(),

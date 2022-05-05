@@ -3,16 +3,9 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comment;
-use App\Models\Image;
-use App\Models\Phone;
+use App\Models\Category;
 use App\Models\Post;
-use App\Models\Rule;
-use App\Models\User;
-use App\Models\Video;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\DocBlock\Tag;
 
 class PostController extends Controller
 {
@@ -22,20 +15,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-    public function poly_relation(){
-        
-    }
-    public function relation(){
-
-    }
-
-    public function orm(){
-
-    }
     public function index()
     {
-        return view('admin.posts.index');
+        $posts=Post::orderBy('created_at','desc')->get();
+        return view('admin.posts.index',compact('posts'));
     }
 
     /**
@@ -45,7 +28,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::all();
+        return view('admin.posts.addPost',compact('categories'));
+
     }
 
     /**
@@ -56,51 +41,71 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post=new Post();
+        $post->title=$request->title;
+        $post->post_content=$request->body;
+        $post->featured_image=$request->featured_image;
+        $post->large_image=$request->large_image;
+        $post->category_id=$request->category;
+        $post->save();
+        return redirect()->route('post.index');
+
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('admin.posts.viewPost',compact('post'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $categories=Category::all();
+        return view('admin.posts.editPost',compact('categories','post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $post->title=$request->title;
+        $post->post_content=$request->body;
+        $post->featured_image=$request->featured_image;
+        $post->large_image=$request->large_image;
+        $post->category_id=$request->category;
+        $post->save();
+        return redirect()->route('post.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('post.index');
+
     }
 }

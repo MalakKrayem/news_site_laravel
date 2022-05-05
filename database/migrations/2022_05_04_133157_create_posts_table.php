@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->string('featured_image');
-            $table->string('large_image');
-            $table->integer('views');
-            $table->integer('shares');
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('user_id');
+            $table->text('post_content');
+            $table->string('featured_image')->nullable();
+            $table->string('large_image')->nullable();
+            $table->integer('views')->default(0);
+            $table->integer('shares')->default(0);
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');

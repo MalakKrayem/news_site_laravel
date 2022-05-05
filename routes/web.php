@@ -24,15 +24,15 @@ Route::get('contact', [FrontSiteController::class,'showContact'])->name('contact
 Route::get('single', [FrontSiteController::class,'showSingle'])->name('single');
 
 Route::prefix('admin')->group(function (){
-    Route::get('/', [DashboardController::class,'index']);
+    Route::get('/', [DashboardController::class,'index'])->name('admin');
     Route::resource('user',UserController::class);
     Route::resource('post',PostController::class);
     Route::resource('category',CategoryController::class);
 });
 
-Route::get('orm',[PostController::class,'orm']);
-Route::get('relation',[PostController::class,'relation']);
-Route::get('polyrelation',[PostController::class,'poly_relation']);
+//Route::get('orm',[PostController::class,'orm']);
+//Route::get('relation',[PostController::class,'relation']);
+//Route::get('polyrelation',[PostController::class,'poly_relation']);
 
 
 
