@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
+use App\Models\Phone;
 use App\Models\Post;
+use App\Models\Rule;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,13 +18,18 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function relation(){
+
+    }
+
+    public function orm(){
+
+    }
     public function index()
     {
-        $posts=DB::table('posts')->limit(5)->get();
-        foreach ($posts as $post){
-            echo "<h1>" .$post->title ."</h1>";
-        }
-        //return view('admin.posts.index');
+        return view('admin.posts.index');
     }
 
     /**

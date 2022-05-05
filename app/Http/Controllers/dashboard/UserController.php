@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,12 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function relation(){
+//        $phone=Phone::find(1);
+//        dd($phone->user->toArray());
+        $user=User::find(1);
+        dd($user->phone->toArray());
+    }
     public function index()
     {
         //

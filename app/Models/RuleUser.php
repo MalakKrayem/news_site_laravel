@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class RuleUser extends Model
 {
     use HasFactory;
-
-    public function comments(){
-        return $this->hasMany(Comment::class);
-    }
+    protected $table='rule_user';
 }

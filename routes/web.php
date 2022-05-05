@@ -30,4 +30,9 @@ Route::prefix('admin')->group(function (){
     Route::resource('category',CategoryController::class);
 });
 
+Route::get('orm',[PostController::class,'orm']);
+Route::get('relation',[PostController::class,'relation']);
+
+
+
 

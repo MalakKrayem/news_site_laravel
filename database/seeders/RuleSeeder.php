@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
+use App\Models\Rule;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CommentSeeder extends Seeder
+class RuleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        Comment::factory()->count(100)->create();
+        Rule::factory()->count(100)->create();
     }
 }

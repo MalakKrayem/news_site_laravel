@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('rule_user', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->unsignedBigInteger('post_id');
-            $table->softDeletes();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('rule_id');
             $table->timestamps();
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('rule_id')->references('id')->on('rules');
 
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('rule_users');
     }
 };

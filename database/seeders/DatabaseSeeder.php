@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CategorySeeder::class,
             PostSeeder::class,
-            CommentSeeder::class
+            CommentSeeder::class,
+            PhoneSeeder::class,
+            RuleSeeder::class,
+            RuleUserSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

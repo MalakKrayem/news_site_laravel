@@ -17,6 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    public function phone(){
+        return $this->hasOne(Phone::class);
+    }
+
+    public function rules(){
+        return $this->belongsToMany(Rule::class);
+    }
     protected $fillable = [
         'name',
         'email',
