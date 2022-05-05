@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             RuleUserSeeder::class,
             ImageSeeder::class,
             VideoSeeder::class,
-            ShareSeeder::class
+            ShareSeeder::class,
+            TagSeeder::class,
+            TagableSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

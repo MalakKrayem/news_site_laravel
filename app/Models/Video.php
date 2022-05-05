@@ -11,4 +11,7 @@ class Video extends Model
     public function sharesNum(){
         return $this->morphMany(Share::class,'shareable');
     }
+    public function tags(){
+        return $this->morphToMany(Tag::class,'tagable');
+    }
 }

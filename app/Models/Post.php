@@ -9,6 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    public function tags(){
+        return $this->morphToMany(Tag::class,'tagable');
+    }
+
     public function comments(){
         return $this->hasMany(Comment::class);
     }

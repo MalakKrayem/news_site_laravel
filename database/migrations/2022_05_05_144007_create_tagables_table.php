@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rule_user', function (Blueprint $table) {
+        Schema::create('tagables', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('rule_id');
+            $table->unsignedBigInteger('tag_id');
+            $table->morphs('tagable');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('rule_id')->references('id')->on('rules');
-
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rule_user');
+        Schema::dropIfExists('tagables');
     }
 };
