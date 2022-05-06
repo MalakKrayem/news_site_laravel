@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('title')
-    posts
+    Posts
 @endsection
 
 @section('content')
