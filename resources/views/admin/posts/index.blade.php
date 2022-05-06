@@ -7,6 +7,7 @@
 @section('content')
 
     <section class="content">
+        @include('admin.layout.messages')
 
         <!-- Default box -->
         <div class="card">
@@ -28,7 +29,7 @@
                     <tr>
                         <th style="width: 1%">#</th>
                         <th style="width: 20%">Post Title</th>
-                        <th style="width: 30%">Feartured image</th>
+                        <th style="width: 10%">Feartured image</th>
                         <th>Views</th>
                         <th style="width: 8%" class="text-center">Shares</th>
                         <th>Category</th>
@@ -91,6 +92,7 @@
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
+        {{$posts->links()}}
 
     </section>
 @endsection

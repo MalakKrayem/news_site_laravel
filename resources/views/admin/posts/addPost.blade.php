@@ -5,6 +5,7 @@
 @endsection
 @section('content')
     <section class="content">
+        @include('admin.layout.messages')
         <form method="post" action="{{route('post.store')}}">
             @csrf
         <div class="row">
@@ -22,30 +23,34 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputName">Post title</label>
-                            <input type="text" id="inputName" name="title" class="form-control">
+                            <input type="text" id="inputName" value="{{old('title')}}" name="title" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="inputDescription">Post Content</label>
-                            <textarea id="inputDescription" class="form-control" name="body" rows="4"></textarea>
+                            <textarea id="inputDescription" class="form-control" name="body" rows="4">
+                                {{old('body')}}
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <label for="inputStatus">Category</label>
                             <select id="inputStatus" name="category" class="form-control custom-select">
                                 <option selected disabled>Select one</option>
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option
+                                        {{old('category')==$category->id? "selected" :" "}}
+                                        value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
 
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="inputStatus">Featured image</label> <br>
-                            <input type="file" name="featured_image">
+                            <input type="file" name="featured_image" value="value="{{old('fearured_imgae')}}">
                             <input type="submit" value="Uploade">
                         </div>
                         <div class="form-group">
                             <label for="inputStatus">Large image</label> <br>
-                            <input type="file" name="large_image">
+                            <input type="file" name="large_image" value="value="{{old('large_imgae')}}">
                             <input type="submit" value="Uploade">
                         </div>
                     </div>
