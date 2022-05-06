@@ -6,6 +6,8 @@
 @endsection
 
 @section('content')
+    {{\Illuminate\Support\Facades\App::setLocale('ar')}}
+{{__('messages.name')}}
         <section class="content">
             <div class="container-fluid">
                 <!-- Info boxes -->

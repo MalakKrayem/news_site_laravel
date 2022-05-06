@@ -4,6 +4,8 @@
     Add Post
 @endsection
 @section('content')
+    {{\Illuminate\Support\Facades\App::setLocale('ar')}}
+
     <section class="content">
         @include('admin.layout.messages')
         <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
@@ -12,7 +14,7 @@
             <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">General</h3>
+                        <h3 class="card-title">{{__('messages.title')}}</h3>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

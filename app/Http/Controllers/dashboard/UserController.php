@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -62,7 +63,7 @@ class UserController extends Controller
         $user=new User();
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->password=$request->password;
+        $user->password=encrypt($request->password);
         $user->email_verified_at=now();
         $user->save();
         return redirect()->route('user.index')->with('success','User added successfuly!');
@@ -118,7 +119,7 @@ class UserController extends Controller
         }
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->password=$request->password;
+        $user->password=encrypt($request->password);
         $user->email_verified_at=now();
         $user->save();
         return redirect()->route('user.index')->with('success','User updated successfuly!');
