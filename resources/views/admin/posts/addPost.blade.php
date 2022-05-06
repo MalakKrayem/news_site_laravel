@@ -6,7 +6,7 @@
 @section('content')
     <section class="content">
         @include('admin.layout.messages')
-        <form method="post" action="{{route('post.store')}}">
+        <form method="post" action="{{route('post.store')}}" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-md-12">
@@ -43,16 +43,19 @@
 
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="inputStatus">Featured image</label> <br>
-                            <input type="file" name="featured_image" value="value="{{old('fearured_imgae')}}">
-                            <input type="submit" value="Uploade">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" value="{{old('featured_image')}}" name="featured_image" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputStatus">Large image</label> <br>
-                            <input type="file" name="large_image" value="value="{{old('large_imgae')}}">
-                            <input type="submit" value="Uploade">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" value="{{old('large_image')}}" name="large_image" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                            </div>
                         </div>
+
                     </div>
                     <!-- /.card-body -->
                 </div>

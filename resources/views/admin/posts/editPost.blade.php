@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <section class="content">
-        <form method="post" action="{{route('post.update',$post)}}">
+        <form method="post" action="{{route('post.update',$post)}}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
@@ -41,15 +41,21 @@
 
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="inputStatus">Featured image</label> <br>
-                                <input type="file" name="featured_image" value="{{$post->featured_image}}">
-                                <input type="submit" value="Uploade">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input"
+                                           value="{{$post->featured_image}}"
+                                           name="featured_image" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inputStatus">Large image</label> <br>
-                                <input type="file" name="large_image" value="{{$post->large_image}}">
-                                <input type="submit" value="Uploade">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input"
+                                           value="{{$post->large_image}}"
+                                           name="large_image" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose image</label>
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->

@@ -68,6 +68,20 @@ class PostController extends Controller
         $post->featured_image=$request->featured_image;
         $post->large_image=$request->large_image;
         $post->category_id=$request->category;
+
+        $imgtitle=str_replace(" ","_",$post->title);
+
+        $post_featured_image=$request->file('featured_image');
+        $file_name_featured=$imgtitle.time().'feat.'.$post_featured_image->extension();
+        $post_featured_image->move('post_featured_images',$file_name_featured);
+
+        $post_large_image=$request->file('large_image');
+        $file_name_large=$imgtitle.time().'large.'.$post_large_image->extension();
+        $post_large_image->move('post_large_images',$file_name_large);
+
+        $post->featured_image=$file_name_featured;
+        $post->large_image=$file_name_large;
+
         $post->save();
         return redirect()->route('post.index')->with('success','Post added successfuly!');
 
@@ -107,13 +121,43 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $rules=[
+            'title'=>'required|max:50|min:5',
+            'body'=>'required|string',
+            'category'=>'required|integer'
+        ];
+        $messages=[
+            'title.required'=>'The title can not be empty!',
+            'title.max'=>'The title can not be more than 50 charachter!',
+            'title.min'=>'The title can not be less than 5 charachter!',
+            'body.required'=>'The post content can not be empty!',
+            'body.string'=>'The post content should be sttring!',
+            'category.required'=>'You should select category!',
+        ];
+        $validator=Validator::make($request->all(),$rules,$messages);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+
         $post->title=$request->title;
         $post->post_content=$request->body;
         $post->featured_image=$request->featured_image;
         $post->large_image=$request->large_image;
         $post->category_id=$request->category;
+        $imgtitle=str_replace(" ","_",$post->title);
+
+        $post_featured_image=$request->file('featured_image');
+        $file_name_featured=$post->title.time().'feat2.'.$post_featured_image->extension();
+        $post_featured_image->move('post_featured_images',$file_name_featured);
+
+        $post_large_image=$request->file('large_image');
+        $file_name_large=$imgtitle.time().'large.'.$post_large_image->extension();
+        $post_large_image->move('post_large_images',$file_name_large);
+
+        $post->featured_image=$file_name_featured;
+        $post->large_image=$file_name_large;
         $post->save();
-        return redirect()->route('post.index');
+        return redirect()->route('post.index')->with('success','Post updated successfuly!');
     }
 
     /**

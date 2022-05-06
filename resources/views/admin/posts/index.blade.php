@@ -29,7 +29,7 @@
                     <tr>
                         <th style="width: 1%">#</th>
                         <th style="width: 20%">Post Title</th>
-                        <th style="width: 10%">Feartured image</th>
+                        <th style="width: 20%">Feartured image</th>
                         <th>Views</th>
                         <th style="width: 8%" class="text-center">Shares</th>
                         <th>Category</th>
@@ -49,7 +49,7 @@
                         <td>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
-                                    <img alt="Avatar" class="table-avatar" src="{{$post->featured_image}}">
+                                    <img alt="Avatar" width="100" height="100"  src="{{asset('post_featured_images/'.$post->featured_image)}}">
                                 </li>
 
                             </ul>
