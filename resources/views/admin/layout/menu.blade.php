@@ -92,21 +92,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/UI/general.html" class="nav-link">
+                            <a href="{{route('user.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add user</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/UI/icons.html" class="nav-link">
+                            <a href="{{route('user.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List users</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/UI/buttons.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Update user information</p>
                             </a>
                         </li>
 
