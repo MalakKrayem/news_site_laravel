@@ -13,7 +13,7 @@
                 <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="{{route('admin')}}" class="d-block">Alexander Pierce</a>
+                <a href="{{route('admin')}}" class="d-block">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
             </div>
         </div>
 
@@ -105,6 +105,15 @@
                         </li>
 
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('logout')}}" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Log out
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
                 </li>
 
             </ul>

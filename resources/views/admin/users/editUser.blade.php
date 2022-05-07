@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputDescription">Password</label>
-                                <input type="text" id="inputName" value="{{decrypt($user->password)}}" name="password" class="form-control">
+                                <input type="text" id="inputName" value="{{$user->password}}" name="password" class="form-control">
                             </div>
 
                         </div>

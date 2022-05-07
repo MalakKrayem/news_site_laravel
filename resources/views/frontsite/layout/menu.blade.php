@@ -19,6 +19,19 @@
                         <li class="nav-item ">
                             <a class="nav-link" href="{{route('contact')}}">Contact <span class="sr-only">(current)</span></a>
                         </li>
+                        @guest()
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('login')}}">Login <span class="sr-only">(current)</span></a>
+                            </li>
+                        @endguest
+                        @auth()
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('admin')}}">Dashboard <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{{route('logout')}}">Logout <span class="sr-only">(current)</span></a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </nav>

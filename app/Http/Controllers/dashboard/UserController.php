@@ -63,7 +63,7 @@ class UserController extends Controller
         $user=new User();
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->password=encrypt($request->password);
+        $user->password=Hash::make($request->password);
         $user->email_verified_at=now();
         $user->save();
         return redirect()->route('user.index')->with('success','User added successfuly!');
