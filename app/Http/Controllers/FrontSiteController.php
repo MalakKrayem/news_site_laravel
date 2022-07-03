@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class FrontSiteController extends Controller
 {
     public function showHome(){
-        return view('frontsite.index');
+        $posts=Post::orderBy('created_at','desc')->get();
+        return view('frontsite.index',compact('posts'));
     }
     public function showBlog(){
-        return view('frontsite.blog');
+        $posts=Post::orderBy('created_at','desc')->get();
+        return view('frontsite.blog',compact('posts'));
 
     }
-    public function showSingle(){
-        return view('frontsite.blog');
+    public function showSingle(Post $post){
+        dd($post);
+        return view('frontsite.single',compact("post"));
 
     }
     public function showContact(){

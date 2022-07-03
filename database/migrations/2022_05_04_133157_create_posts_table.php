@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('large_image')->nullable();
             $table->integer('views')->default(0);
             $table->integer('shares')->default(0);
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable()->default(0);
+            $table->unsignedBigInteger('user_id')->nullable()->default(0);
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');

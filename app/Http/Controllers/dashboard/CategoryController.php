@@ -120,7 +120,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
+        $cat = Category::find($category);
+
+// delete related
+        $cat->posts()->delete();
+
+        $cat->delete();
         return redirect()->route('category.index');
 
     }
