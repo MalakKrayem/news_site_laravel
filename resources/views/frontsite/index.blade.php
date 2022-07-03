@@ -11,9 +11,9 @@
                 <div class="fh5co_suceefh5co_height"><img src="{{asset('post_large_images/'.$posts->first()->large_image)}}" alt="img"/>
                     <div class="fh5co_suceefh5co_height_position_absolute"></div>
                     <div class="fh5co_suceefh5co_height_position_absolute_font">
-                        <div class=""><a href="{{route("single",$posts->first())}}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$posts->first()->created_at}}
+                        <div class=""><a href="{{route("single",["id"=>$posts->first()->id])}}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$posts->first()->created_at}}
                         </a></div>
-                        <div class=""><a href="{{route("single",$posts->first())}}" class="fh5co_good_font"> {{$posts->first()->title}}</a></div>
+                        <div class=""><a href="" class="fh5co_good_font"> {{$posts->first()->title}}</a></div>
                     </div>
                 </div>
             </div>
@@ -24,8 +24,8 @@
                         <div class="fh5co_suceefh5co_height_2"><img src="{{asset('post_large_images/'.$post->large_image)}}" alt="img"/>
                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
                             <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                                <div class="{{route("single",$post)}}"><a href="" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;{{date('M-d', strtotime($post->created_at))}} </a></div>
-                                <div class="{{route("single",$post)}}"><a href="" class="fh5co_good_font_2"> {{$post->title}} </a></div>
+                                <div class=""><a href="{{route("single",["id"=>$post->id])}}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;{{date('M-d', strtotime($post->created_at))}} </a></div>
+                                <div class=""><a href="{{route("single",["id"=>$post->id])}}" class="fh5co_good_font_2"> {{$post->title}} </a></div>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                                                class="fh5co_img_special_relative"/></div>
                         <div class="fh5co_latest_trading_img_position_absolute"></div>
                         <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="{{route("single",$post)}}" class="text-white"> {{$post->title}}</a>
+                            <a href="{{route("single",["id"=>$post->id])}}" class="text-white"> {{$post->title}}</a>
                             <div class="fh5co_latest_trading_date_and_name_color"> {{$post->user->name}} - {{date("M d,Y",strtotime($post->created_at))}}</div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     <div class="fh5co_hover_news_img">
                         <div class="fh5co_news_img"><img src="{{asset('post_large_images/'.$post->large_image)}}" alt=""/></div>
                         <div>
-                            <a href="{{route("single",$post)}}" class="d-block fh5co_small_post_heading"><span class="">{{$post->title}}</span></a>
+                            <a href="" class="d-block fh5co_small_post_heading"><span class="">{{$post->title}}</span></a>
                             <div class="c_g"><i class="fa fa-clock-o"></i> {{date("M d,Y",strtotime($post->created_at))}}</div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         </div>
                         <div class="col-md-7 animate-box">
                             <a href="single.blade.php" class="fh5co_magna py-2"> {{$post->title}}
-                            </a> <a href="" class="fh5co_mini_time py-3">
+                            </a> <a href="{{route("single",["id"=>$post->id])}}" class="fh5co_mini_time py-3">
                                 {{date("M d,Y",strtotime($post->created_at))}} </a>
                             <div class="fh5co_consectetur"> {{$post->post_content}}
                             </div>

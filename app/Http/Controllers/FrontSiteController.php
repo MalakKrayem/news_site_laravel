@@ -16,9 +16,9 @@ class FrontSiteController extends Controller
         return view('frontsite.blog',compact('posts'));
 
     }
-    public function showSingle(Post $post){
-        dd($post);
-        return view('frontsite.single',compact("post"));
+    public function showSingle($id){
+
+        return view('frontsite.single',['post' => Post::findOrFail($id)]);
 
     }
     public function showContact(){

@@ -22,7 +22,7 @@ use App\Http\Controllers\AuthController;
 Route::get('/',[FrontSiteController::class,'showHome'])->name('home');
 Route::get('blog', [FrontSiteController::class,'showBlog'])->name('blog');
 Route::get('contact', [FrontSiteController::class,'showContact'])->name('contact');
-Route::get('single', [FrontSiteController::class,'showSingle'])->name('single');
+Route::get('single/{id}', [FrontSiteController::class,'showSingle',])->name('single');
 
 Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('/', [DashboardController::class,'index'])->name('admin');
