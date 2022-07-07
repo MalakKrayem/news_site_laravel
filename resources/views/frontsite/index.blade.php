@@ -13,7 +13,7 @@
                     <div class="fh5co_suceefh5co_height_position_absolute_font">
                         <div class=""><a href="{{route("single",["id"=>$posts->first()->id])}}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{$posts->first()->created_at}}
                         </a></div>
-                        <div class=""><a href="" class="fh5co_good_font"> {{$posts->first()->title}}</a></div>
+                        <div class=""><a href="{{route("single",["id"=>$posts->first()->id])}}" class="fh5co_good_font"> {{$posts->first()->title}}</a></div>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-md-7 animate-box">
-                            <a href="single.blade.php" class="fh5co_magna py-2"> {{$post->title}}
+                            <a href="{{route("single",["id"=>$post->id])}}" class="fh5co_magna py-2"> {{$post->title}}
                             </a> <a href="{{route("single",["id"=>$post->id])}}" class="fh5co_mini_time py-3">
                                 {{date("M d,Y",strtotime($post->created_at))}} </a>
                             <div class="fh5co_consectetur"> {{$post->post_content}}

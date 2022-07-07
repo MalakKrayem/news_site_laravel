@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id')->nullable()->default(0);
             $table->unsignedBigInteger('user_id')->nullable()->default(0);
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

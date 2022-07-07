@@ -4,7 +4,6 @@
     Add Post
 @endsection
 @section('content')
-    {{\Illuminate\Support\Facades\App::setLocale('ar')}}
 
     <section class="content">
         @include('admin.layout.messages')
