@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div id="fh5co-title-box" style="background-image: '{{asset('post_large_images/'.$post->large_image)}}'; background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+    <div id="fh5co-title-box" style="background-image: url('{{asset('post_large_images/'.$post->large_image)}}'); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="page-title">
             <img src="{{asset('post_large_images/'.$post->large_image)}}" alt="Free HTML5 by FreeHTMl5.co">
