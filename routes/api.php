@@ -27,11 +27,13 @@ Route::middleware(['jwt.verify'])->group(function(){
     Route::get("/category/{id}",[CategoryController::class,"show"]);
     Route::put("/category/{id}",[CategoryController::class,"update"]);
     Route::delete("/category/{id}",[CategoryController::class,"destroy"]);
-
-
-
-
-
+});
+Route::get("/malak",function (){
+//    $data=\App\Models\User::with(["posts"=>function($query){
+//        $query->where("name","LIKE","%a%");
+//    }])->get();
+    $data=\App\Models\User::withCount("posts")->get();
+    return response()->json(["data"=>$data]);
 });
 
 
